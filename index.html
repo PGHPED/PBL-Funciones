@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Cuántos coches fabricar? · Reto de Funciones · 3.º ESO</title>
+  <meta name="description" content="PBL de Matemáticas — análisis de una función a trozos que modela el beneficio de una fábrica de coches. Colegio Heidelberg, 3.º de ESO." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Barra de progreso de scroll -->
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <!-- Navegación lateral por puntos -->
+  <nav class="dotnav" id="dotnav" aria-label="Navegación de secciones"></nav>
+
+  <main>
+
+    <!-- 1 · PORTADA -->
+    <section class="section section--hero" id="portada" data-nav="Inicio">
+      <div class="hero__inner reveal">
+        <p class="hero__eyebrow">Colegio Heidelberg · Gran Canaria</p>
+        <h1 class="hero__title">¿Cuántos coches<br /><span class="outline">fabricar?</span></h1>
+        <p class="hero__subtitle">Un Reto de Funciones para 3.º de ESO</p>
+        <div class="hero__meta">
+          <p><span class="label">Asignatura</span> Matemáticas · Tema 9: Funciones</p>
+          <p><span class="label">Integrantes</span>Alejandro, Daniel Brito, Guillermo Chanca y Pablo Beltran</p>
+          <p><span class="label">Grupo</span> 3.º ESO C</p>
+        </div>
+        <div class="scroll-hint" aria-hidden="true">
+          <span>Desliza para empezar</span>
+          <span class="scroll-hint__arrow">↓</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · EL PROBLEMA -->
+    <section class="section" id="problema" data-nav="El problema">
+      <div class="section__inner reveal">
+        <p class="kicker">S.O.S. en la empresa</p>
+        <h2 class="section__title">Una fábrica sin su analista</h2>
+        <div class="prose">
+          <p>Una revolucionaria empresa de coches ha perdido a su <strong>analista estrella</strong>. Antes de irse, dejó un riguroso estudio sobre los <strong>beneficios&nbsp;(y)</strong> en función de los <strong>coches fabricados&nbsp;(x)</strong>.</p>
+          <p>El problema: <strong>nadie en la gerencia sabe interpretar las fórmulas</strong> ni extraer conclusiones. Necesitan nuestra ayuda urgente para decidir el futuro de la fábrica.</p>
+          <p class="prose__note">Nuestra misión: traducir las matemáticas a <em>decisiones empresariales</em>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · EL MODELO MATEMÁTICO -->
+    <section class="section" id="modelo" data-nav="El modelo">
+      <div class="section__inner reveal">
+        <p class="kicker">El modelo matemático</p>
+        <h2 class="section__title">El beneficio es una función a trozos</h2>
+        <p class="lead">El beneficio <em>y</em> (en euros) depende del número de coches <em>x</em> fabricados según tres reglas:</p>
+
+        <div class="piecewise">
+          <span class="piecewise__y">y =</span>
+          <span class="brace">{</span>
+          <div class="piecewise__rows">
+            <div class="piecewise__row">
+              <span class="formula">x<sup>2</sup> + 20x − 900</span>
+              <span class="cond">si 0 ≤ x ≤ 100</span>
+            </div>
+            <div class="piecewise__row">
+              <span class="formula">21.100 − 100x</span>
+              <span class="cond">si 100 &lt; x &lt; 150</span>
+            </div>
+            <div class="piecewise__row">
+              <span class="formula">−3x<sup>2</sup> + 1.200x − 106.400</span>
+              <span class="cond">si x ≥ 150</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tramos">
+          <div class="tramo">
+            <span class="tramo__tag">Tramo 1</span>
+            <p>Parábola hacia arriba. Producción pequeña-media (0–100 coches).</p>
+          </div>
+          <div class="tramo">
+            <span class="tramo__tag">Tramo 2</span>
+            <p>Recta descendente. Zona de transición (100–150 coches).</p>
+          </div>
+          <div class="tramo">
+            <span class="tramo__tag">Tramo 3</span>
+            <p>Parábola hacia abajo. Gran producción (150 coches o más).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · CUESTIÓN A -->
+    <section class="section" id="cuestion-a" data-nav="A · Cálculos">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">A</span>
+          <h2 class="section__title">¿Cuál es el beneficio para 50, 100, 125, 150 y 200 coches?</h2>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr><th>Coches (x)</th><th>Tramo</th><th>Cálculo</th><th>Beneficio (y)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>50</td><td>1</td>
+              <td>50<sup>2</sup> + 20·50 − 900 = 2.500 + 1.000 − 900</td>
+              <td class="num">2.600 €</td>
+            </tr>
+            <tr>
+              <td>100</td><td>1</td>
+              <td>100<sup>2</sup> + 20·100 − 900 = 10.000 + 2.000 − 900</td>
+              <td class="num">11.100 €</td>
+            </tr>
+            <tr>
+              <td>125</td><td>2</td>
+              <td>21.100 − 100·125 = 21.100 − 12.500</td>
+              <td class="num">8.600 €</td>
+            </tr>
+            <tr>
+              <td>150</td><td>3</td>
+              <td>−3·150<sup>2</sup> + 1.200·150 − 106.400</td>
+              <td class="num">6.100 €</td>
+            </tr>
+            <tr>
+              <td>200</td><td>3</td>
+              <td>−3·200<sup>2</sup> + 1.200·200 − 106.400</td>
+              <td class="num">13.600 €</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="caption">Cada valor se calcula con la fórmula del tramo al que pertenece su número de coches.</p>
+      </div>
+    </section>
+
+    <!-- 5 · CUESTIÓN B -->
+    <section class="section section--wide" id="cuestion-b" data-nav="B · Gráfica">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">B</span>
+          <h2 class="section__title">Representación gráfica de los beneficios</h2>
+        </div>
+
+        <figure class="chart">
+          <canvas id="chart" role="img" aria-label="Gráfica del beneficio en función del número de coches fabricados. Sube hasta un primer pico en 100 coches (11.100 €), baja hasta un valle en 150 coches (6.100 €), vuelve a subir hasta el máximo en 200 coches (13.600 €) y después cae cruzando el cero hacia 267 coches."></canvas>
+        </figure>
+
+        <ul class="legend">
+          <li><span class="legend__dot"></span><strong>A</strong> (100, 11.100) — máximo local</li>
+          <li><span class="legend__dot"></span><strong>B</strong> (150, 6.100) — valle</li>
+          <li><span class="legend__dot"></span><strong>C</strong> (200, 13.600) — máximo global</li>
+        </ul>
+        <p class="caption">La curva tiene dos "picos" (100 y 200 coches) y un valle entre ellos (150). A partir de ≈267 coches el beneficio se vuelve negativo.</p>
+      </div>
+    </section>
+
+    <!-- 6 · CUESTIÓN C -->
+    <section class="section" id="cuestion-c" data-nav="C · Producción total">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">C</span>
+          <h2 class="section__title">¿Cuántos coches es posible fabricar en total?</h2>
+        </div>
+        <p class="answer">Como máximo <strong>267 coches</strong> con beneficio.</p>
+        <div class="prose">
+          <p>La función está definida para cualquier <em>x</em> ≥ 0, pero solo tiene sentido fabricar mientras haya beneficio. Eso ocurre mientras el tramo 3 sea positivo:</p>
+          <p class="formula-line">−3x<sup>2</sup> + 1.200x − 106.400 = 0 &nbsp;→&nbsp; x ≈ 267,3</p>
+          <p>Con <strong>267 coches</strong> todavía hay beneficio (≈ 133 €); con 268 ya hay <strong>pérdidas</strong>. Por tanto, la producción razonable llega hasta 267 coches.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · CUESTIÓN D -->
+    <section class="section" id="cuestion-d" data-nav="D · Recorrido">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">D</span>
+          <h2 class="section__title">¿Entre qué valores pueden variar los beneficios?</h2>
+        </div>
+        <p class="answer">El beneficio máximo es <strong>13.600 €</strong>; el recorrido es <strong>(−∞, 13.600 €]</strong>.</p>
+        <div class="prose">
+          <p>El punto más alto de toda la gráfica es <strong>13.600 €</strong>, alcanzado al fabricar 200 coches. Hacia arriba no se puede pasar de ahí.</p>
+          <p>Si la producción no se limita, el beneficio cae sin fondo (puede llegar a −∞). En la <strong>zona realista</strong> de producción, los beneficios van desde <strong>−900 €</strong> (en x = 0, solo costes fijos) hasta los 13.600 €.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · CUESTIÓN E -->
+    <section class="section" id="cuestion-e" data-nav="E · Crece/decrece">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">E</span>
+          <h2 class="section__title">¿Cuándo crecen o decrecen los beneficios?</h2>
+        </div>
+        <div class="updown">
+          <div class="updown__col updown__col--up">
+            <span class="updown__icon" aria-hidden="true">↗</span>
+            <h3>Crece</h3>
+            <p>de 0 a 100 coches</p>
+            <p>de 150 a 200 coches</p>
+          </div>
+          <div class="updown__col updown__col--down">
+            <span class="updown__icon" aria-hidden="true">↘</span>
+            <h3>Decrece</h3>
+            <p>de 100 a 150 coches</p>
+            <p>de 200 coches en adelante</p>
+          </div>
+        </div>
+        <p class="caption">El beneficio sube hacia cada pico (100 y 200) y baja hacia el valle (150) y tras el máximo.</p>
+      </div>
+    </section>
+
+    <!-- 9 · CUESTIÓN F -->
+    <section class="section" id="cuestion-f" data-nav="F · Máximo">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">F</span>
+          <h2 class="section__title">¿Cuántos coches para que el beneficio sea máximo?</h2>
+        </div>
+        <p class="answer"><strong>200 coches</strong> → beneficio máximo de <strong>13.600 €</strong>.</p>
+        <div class="prose">
+          <p>El beneficio máximo está en el vértice de la parábola del tramo 3:</p>
+          <p class="formula-line">x = −b / 2a = −1.200 / (2 · −3) = <strong>200</strong></p>
+          <p>Existe un segundo máximo (local) en 100 coches con 11.100 €, pero el global —el mejor de todos— es fabricar <strong>200 coches</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · CUESTIÓN G -->
+    <section class="section" id="cuestion-g" data-nav="G · Mínimo">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">G</span>
+          <h2 class="section__title">¿Cuándo el beneficio será el más bajo posible?</h2>
+        </div>
+        <p class="answer">No hay un mínimo absoluto: con producción ilimitada el beneficio → <strong>−∞</strong>.</p>
+        <div class="prose">
+          <p>Cuantos más coches se fabriquen por encima de lo razonable, peor: el beneficio baja sin límite. Por eso el <strong>mínimo global es "indefinido"</strong>.</p>
+          <p>Dentro de la gráfica, el <strong>valle</strong> entre los dos picos está en <strong>150 coches (6.100 €)</strong>, y el punto realista más bajo es el arranque, en <strong>0 coches (−900 €)</strong> por los costes fijos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · CUESTIÓN H -->
+    <section class="section" id="cuestion-h" data-nav="H · Saltos">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">H</span>
+          <h2 class="section__title">¿Se produce algún salto en los beneficios?</h2>
+        </div>
+        <p class="answer">No: la función es <strong>continua</strong>, sin saltos.</p>
+        <div class="prose">
+          <p>En los puntos donde cambia de fórmula, los tramos <strong>coinciden</strong>:</p>
+          <ul class="checklist">
+            <li><strong>x = 100:</strong> tramo 1 y tramo 2 valen los dos <strong>11.100 €</strong>.</li>
+            <li><strong>x = 150:</strong> tramo 2 y tramo 3 valen los dos <strong>6.100 €</strong>.</li>
+          </ul>
+          <p>Como los valores empalman, no hay discontinuidades. Eso sí, hay dos <strong>"picos" angulosos</strong> (esquinas) en 100 y 150, donde la curva cambia bruscamente de dirección.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · CUESTIÓN I -->
+    <section class="section" id="cuestion-i" data-nav="I · Sin límite">
+      <div class="section__inner reveal">
+        <div class="q-head">
+          <span class="badge">I</span>
+          <h2 class="section__title">¿Qué ocurriría con un número ilimitado de coches?</h2>
+        </div>
+        <p class="answer">Pérdidas catastróficas: el beneficio tiende a <strong>−∞</strong>.</p>
+        <div class="prose">
+          <p>El comportamiento a largo plazo lo manda el tramo 3, una parábola hacia abajo:</p>
+          <p class="formula-line">lím<sub>x→∞</sub> (−3x<sup>2</sup> + 1.200x − 106.400) = −∞</p>
+          <p>Fabricar coches sin límite no enriquece a la empresa: la llevaría a la <strong>ruina</strong>. La sobreproducción dispara los costes y hunde el beneficio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · CONCLUSIÓN -->
+    <section class="section section--dark" id="conclusion" data-nav="Conclusión">
+      <div class="section__inner reveal">
+        <p class="kicker kicker--light">Recomendación para la gerencia</p>
+        <h2 class="section__title">Fabricad <span class="outline outline--light">200 coches</span></h2>
+        <div class="cards">
+          <div class="card">
+            <span class="card__num">200</span>
+            <p>coches es la producción óptima: <strong>13.600 €</strong> de beneficio máximo.</p>
+          </div>
+          <div class="card">
+            <span class="card__num">267</span>
+            <p>es el límite: por encima, la fábrica entra en <strong>pérdidas</strong>.</p>
+          </div>
+          <div class="card">
+            <span class="card__num">~22</span>
+            <p>coches mínimos para no perder dinero: por debajo, beneficio negativo.</p>
+          </div>
+        </div>
+        <p class="closing">Las matemáticas han hablado: ni demasiado poco, ni demasiado. El equilibrio está en <strong>200 coches</strong>.</p>
+      </div>
+    </section>
+
+    <!-- 14 · PIE -->
+    <footer class="footer">
+      <p class="footer__title">¿Cuántos coches fabricar?</p>
+      <p>Reto de Funciones · 3.º de ESO · Colegio Heidelberg (Gran Canaria)</p>
+      <p class="footer__small">Producto final del PBL · Tema 9: Funciones a trozos</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
