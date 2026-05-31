@@ -386,6 +386,10 @@ sub { font-size: 0.7em; }
   border-radius: 50%;
   background: var(--black);
 }
+.legend__dot--up   { background: rgba(34, 139, 80, 0.85); border-radius: 3px; }
+.legend__dot--down { background: rgba(200, 60, 60, 0.85); border-radius: 3px; }
+.hi-up   { color: #1f7a4a; font-weight: 600; }
+.hi-down { color: #b03a3a; font-weight: 600; }
 
 /* ---------- Crece / decrece (Cuestión E) ---------- */
 .updown {

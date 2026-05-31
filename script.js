@@ -29,9 +29,18 @@
   ];
   // Puntos especiales (con etiqueta)
   var keyPoints = [
+    { x: 0,   y: -900,  label: "M", place: "right-down" },
     { x: 100, y: 11100, label: "A", place: "up-left" },
-    { x: 150, y: 6100, label: "B", place: "down" },
+    { x: 150, y: 6100,  label: "B", place: "down" },
     { x: 200, y: 13600, label: "C", place: "up" }
+  ];
+
+  // Tramos crecientes / decrecientes (para sombreado de fondo)
+  var monoZones = [
+    { from: 0,   to: 100, type: "up"   },
+    { from: 100, to: 150, type: "down" },
+    { from: 150, to: 200, type: "up"   },
+    { from: 200, to: 270, type: "down" }
   ];
 
   function drawChart() {
@@ -55,6 +64,15 @@
     function py(y) { return mT + (Y_MAX - y) / (Y_MAX - Y_MIN) * ph; }
 
     var FONT = '12px "Inter", Helvetica, Arial, sans-serif';
+
+    /* --- Bandas de fondo: zonas de crecimiento / decrecimiento --- */
+    monoZones.forEach(function (z) {
+      ctx.fillStyle = z.type === "up"
+        ? "rgba(34, 139, 80, 0.07)"   // verde suave: crece
+        : "rgba(200, 60, 60, 0.07)";  // rojo suave: decrece
+      var x0 = px(z.from), x1 = px(z.to);
+      ctx.fillRect(x0, mT, x1 - x0, ph);
+    });
 
     /* --- Cuadrícula --- */
     ctx.lineWidth = 1;
@@ -143,6 +161,9 @@
       } else if (p.place === "up-left") {
         ctx.textAlign = "right"; ctx.textBaseline = "bottom";
         ctx.fillText(txt, X - 10, Y - 6);
+      } else if (p.place === "right-down") {
+        ctx.textAlign = "left"; ctx.textBaseline = "top";
+        ctx.fillText(txt, X + 10, Y + 4);
       } else { // down
         ctx.textAlign = "center"; ctx.textBaseline = "top";
         ctx.fillText(txt, X, Y + 12);

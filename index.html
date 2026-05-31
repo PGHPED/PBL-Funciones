@@ -197,27 +197,46 @@
             <canvas
               id="chart"
               role="img"
-              aria-label="Gráfica del beneficio en función del número de coches fabricados. Sube hasta un primer pico en 100 coches (11.100 €), baja hasta un valle en 150 coches (6.100 €), vuelve a subir hasta el máximo en 200 coches (13.600 €) y después cae cruzando el cero hacia 267 coches."
+              aria-label="Gráfica del beneficio en función del número de coches fabricados. Parte del mínimo local en (0, −900), sube hasta un primer pico en 100 coches (11.100 €), baja hasta un valle en 150 coches (6.100 €), vuelve a subir hasta el máximo en 200 coches (13.600 €) y después cae cruzando el cero hacia 267 coches. Las bandas verdes marcan tramos crecientes y las rojas tramos decrecientes."
             ></canvas>
           </figure>
 
           <ul class="legend">
+            <li>
+              <span class="legend__dot"></span><strong>M</strong> (0, −900) —
+              mínimo local (arranque)
+            </li>
             <li>
               <span class="legend__dot"></span><strong>A</strong> (100, 11.100)
               — máximo local
             </li>
             <li>
               <span class="legend__dot"></span><strong>B</strong> (150, 6.100) —
-              valle
+              mínimo local (valle)
             </li>
             <li>
               <span class="legend__dot"></span><strong>C</strong> (200, 13.600)
-              — máximo global
+              — máximo absoluto
+            </li>
+            <li>
+              <span class="legend__dot legend__dot--up"></span>Tramo creciente
+              (sube)
+            </li>
+            <li>
+              <span class="legend__dot legend__dot--down"></span>Tramo
+              decreciente (baja)
             </li>
           </ul>
           <p class="caption">
-            La curva tiene dos "picos" (100 y 200 coches) y un valle entre ellos
-            (150). A partir de ≈267 coches el beneficio se vuelve negativo.
+            La curva arranca en <strong>M (0, −900)</strong> —un
+            <strong>mínimo local</strong> entre ese punto y el primer pico—,
+            sube al máximo local <strong>A (100, 11.100)</strong>, baja al valle
+            <strong>B (150, 6.100)</strong> (otro mínimo local), vuelve a subir
+            hasta el máximo absoluto <strong>C (200, 13.600)</strong> y después
+            cae cruzando el cero hacia ≈267 coches. Las
+            <span class="hi-up">bandas verdes</span> marcan tramos
+            <strong>crecientes</strong> y las
+            <span class="hi-down">rojas</span>, tramos <strong>decrecientes</strong>.
           </p>
         </div>
       </section>
@@ -232,13 +251,23 @@
             </h2>
           </div>
           <p class="answer">
-            Como máximo <strong>267 coches</strong> con beneficio.
+            En teoría la fabricación es <strong>ilimitada</strong> (x → ∞);
+            con beneficio, solo hasta <strong>267 coches</strong>.
           </p>
           <div class="prose">
             <p>
-              La función está definida para cualquier <em>x</em> ≥ 0, pero solo
-              tiene sentido fabricar mientras haya beneficio. Eso ocurre
-              mientras el tramo 3 sea positivo:
+              Según los datos, la producción <em>x</em> no tiene tope: puede
+              crecer sin parar y <strong>tiende a infinito</strong>. En un caso
+              real entrarían otras variables (medios de producción, recursos,
+              financiación…), pero matemáticamente el dominio no está acotado
+              por arriba.
+            </p>
+            <p>
+              Eso sí, fabricar solo merece la pena mientras haya beneficio. Esa
+              frontera está en el <strong>tramo 3</strong>, así que usamos su
+              fórmula (válida únicamente para <em>x</em> ≥ 150, no para
+              cualquier <em>x</em> ≥ 0: en 0–100 manda el tramo 1 y en 100–150
+              el tramo 2) e igualamos a cero:
             </p>
             <p class="formula-line">
               −3x<sup>2</sup> + 1.200x − 106.400 = 0 &nbsp;→&nbsp; x ≈ 267,3
@@ -246,7 +275,8 @@
             <p>
               Con <strong>267 coches</strong> todavía hay beneficio (≈ 133 €);
               con 268 ya hay <strong>pérdidas</strong>. Por tanto, la producción
-              razonable llega hasta 267 coches.
+              <strong>razonable</strong> llega hasta 267 coches, aunque
+              matemáticamente se podrían fabricar muchos más.
             </p>
           </div>
         </div>
@@ -262,20 +292,52 @@
             </h2>
           </div>
           <p class="answer">
-            El beneficio máximo es <strong>13.600 €</strong>; el recorrido es
-            <strong>(−∞, 13.600 €]</strong>.
+            El beneficio máximo es <strong>13.600 €</strong>; el recorrido
+            completo, tramo a tramo, es
+            <strong
+              >(−900, 11.100] ∪ (11.100, 6.100] ∪ (6.100, 13.600] ∪ (13.600,
+              −∞)</strong
+            >.
           </p>
           <div class="prose">
             <p>
               El punto más alto de toda la gráfica es <strong>13.600 €</strong>,
               alcanzado al fabricar 200 coches. Hacia arriba no se puede pasar
-              de ahí.
+              de ahí; hacia abajo, el beneficio acaba cayendo sin fondo.
             </p>
             <p>
-              Si la producción no se limita, el beneficio cae sin fondo (puede
-              llegar a −∞). En la <strong>zona realista</strong> de producción,
-              los beneficios van desde <strong>−900 €</strong> (en x = 0, solo
-              costes fijos) hasta los 13.600 €.
+              Para describir el recorrido bien no basta con dar máximo y
+              límite: hay que recorrer la <em>y</em> tramo a tramo, indicando
+              cómo crece o decrece y qué <strong>forma</strong> tiene la curva
+              en cada uno:
+            </p>
+            <ul class="checklist">
+              <li>
+                <strong>(−900, 11.100]</strong> — tramo 1, x ∈ [0, 100]:
+                <strong>parabólico creciente</strong>. La <em>y</em> sube desde
+                −900 € (arranque, costes fijos) hasta 11.100 € (máximo local A).
+              </li>
+              <li>
+                <strong>(11.100, 6.100]</strong> — tramo 2, x ∈ (100, 150):
+                <strong>recta decreciente</strong>. La <em>y</em> baja desde
+                11.100 € hasta 6.100 € (mínimo local B).
+              </li>
+              <li>
+                <strong>(6.100, 13.600]</strong> — tramo 3a, x ∈ [150, 200]:
+                <strong>parabólico creciente</strong>. La <em>y</em> sube desde
+                6.100 € hasta 13.600 € (máximo absoluto C).
+              </li>
+              <li>
+                <strong>(13.600, −∞)</strong> — tramo 3b, x ∈ (200, ∞):
+                <strong>parabólico decreciente</strong>. La <em>y</em> baja
+                desde 13.600 € sin parar; pasa por 0 en ≈267 coches y sigue
+                cayendo.
+              </li>
+            </ul>
+            <p>
+              Uniendo los cuatro pedazos, el recorrido global queda en
+              <strong>(−∞, 13.600 €]</strong>, pero el desglose anterior es el
+              que muestra el camino real de los beneficios.
             </p>
           </div>
         </div>
